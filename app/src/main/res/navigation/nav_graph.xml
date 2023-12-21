@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_fragmentB_to_fragmentStart"
             app:destination="@id/fragmentStart" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentC"

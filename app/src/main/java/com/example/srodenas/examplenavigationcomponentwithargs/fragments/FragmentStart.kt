@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.srodenas.examplenavigationcomponentwithargs.R
 import com.example.srodenas.examplenavigationcomponentwithargs.databinding.FragmentStartBinding
+import com.example.srodenas.examplenavigationcomponentwithargs.fragments.fragment_b.FragmentBDirections
 
 
 class FragmentStart : Fragment() {
@@ -41,7 +42,7 @@ class FragmentStart : Fragment() {
             }
 
             bindingFragment.button2Inicio.setOnClickListener{
-                navController.navigate(R.id.action_fragmentStart_to_fragmentB)  //navegamos
+                navController.navigate(FragmentStartDirections.actionFragmentStartToFragmentB(name = "Santiago"))  //navegamos
             }
         }
     }

@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.srodenas.examplenavigationcomponentwithargs.R
 import com.example.srodenas.examplenavigationcomponentwithargs.databinding.FragmentABinding
 import com.example.srodenas.examplenavigationcomponentwithargs.databinding.FragmentBBinding
@@ -18,6 +20,11 @@ class FragmentB : Fragment() {
 
     lateinit var navController : NavController
     lateinit var bindingFragment: FragmentBBinding
+    /*
+    navArgs() se encarga de obtener los argumentos pasados (no sabemos como)
+    y lo delega a mi propiedad myArgument.
+     */
+    val myArgument : FragmentBArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +38,9 @@ class FragmentB : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val name = myArgument.name
+
         val navHost = requireActivity()
             .supportFragmentManager
             .findFragmentById(R.id.fragmentContainerView)
@@ -45,6 +55,8 @@ class FragmentB : Fragment() {
                 navController.navigate(R.id.action_fragmentB_to_fragmentC)
             }
         }
+
+        Toast.makeText(requireActivity(), "Mi nombre es $name", Toast.LENGTH_LONG ).show()
 
     }
 
